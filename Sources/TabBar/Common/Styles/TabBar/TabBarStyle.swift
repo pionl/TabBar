@@ -35,6 +35,10 @@ public protocol TabBarStyle {
     associatedtype Content: View
     
     func tabBar(with geometry: GeometryProxy, itemsContainer: @escaping () -> AnyView) -> Content
+    
+    func fillSpaceBetwenItems () -> Bool
+    
+    func stackSpacing () -> CGFloat?
 }
 
 extension TabBarStyle {

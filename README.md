@@ -50,17 +50,17 @@ enum Item: Int, Tabbable {
     
     var icon: String {
         switch self {
-            case .first:  // Name of icon of first item.
-            case .second: // Name of icon of second item.
-            case .third:  // Name of icon of third item.
+            case .first: return "third"  // Name of icon of first item.
+            case .second: return "third" // Name of icon of second item.
+            case .third: return "third"  // Name of icon of third item.
         }
     }
     
     var title: String {
         switch self {
-            case .first:  // Title of first item.
-            case .second: // Title of second item.
-            case .third:  // Title of third item.
+            case .first: return "first" // Title of first item.
+            case .second: return "second" // Title of second item.
+            case .third: return "third"  // Title of third item.
         }
     }
 }
@@ -99,6 +99,14 @@ After these actions tab bar with default style will be created.
 After creating your custom styles you may inject them to your tab bar by using `tabBar(style:)` and `tabItem(style:)` functions. Here is the showcase of default style and one of the examples of what you can achieve by customizing tab bar:
 
 ![](https://github.com/onl1ner/onl1ner/blob/master/Resources/TabBar/Showcase.png?raw=true)
+
+### fillSpaceBetwenItems
+
+Return `true` if you want to fill full width of the bar by the items (like 2 items will have bigger space between them). Return `false` if you want dynamic width of the tabbar style
+
+### fillSpaceBetwenItems
+
+By defualt HSStack has padding. To use the default padding return `nil`. Otherwise return any `CGFloat` you want.
 
 ## Contribution
 

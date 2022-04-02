@@ -32,12 +32,24 @@ import SwiftUI
  */
 public struct AnyTabBarStyle: TabBarStyle {
     private let _makeTabBar: (GeometryProxy, @escaping () -> AnyView) -> AnyView
+    private let _fillSpaceBetwenItems : Bool
+    private let _stackSpacing : CGFloat?
     
     public init<BarStyle: TabBarStyle>(barStyle: BarStyle) {
         self._makeTabBar = barStyle.tabBarErased
+        self._fillSpaceBetwenItems = barStyle.fillSpaceBetwenItems()
+        self._stackSpacing = barStyle.stackSpacing()
     }
     
     public func tabBar(with geometry: GeometryProxy, itemsContainer: @escaping () -> AnyView) -> some View {
         return self._makeTabBar(geometry, itemsContainer)
+    }
+    
+    public func fillSpaceBetwenItems () -> Bool {
+        return self._fillSpaceBetwenItems
+    }
+    
+    public func stackSpacing () -> CGFloat? {
+        return _stackSpacing
     }
 }

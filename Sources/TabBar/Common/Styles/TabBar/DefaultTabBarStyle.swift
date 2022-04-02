@@ -52,4 +52,12 @@ public struct DefaultTabBarStyle: TabBarStyle {
         }
     }
     
+    public func fillSpaceBetwenItems () -> Bool {
+        return true
+    }
+    
+    public func stackSpacing () -> CGFloat? {
+        return nil
+    }
+    
 }

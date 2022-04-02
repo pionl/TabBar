@@ -98,7 +98,7 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
     }
     
     private var tabItems: some View {
-        HStack {
+        HStack (spacing: self.tabBarStyle.stackSpacing()) {
             ForEach(self.items, id: \.self) { item in
                 self.tabItemStyle.tabItem(icon: item.icon, title: item.title, isSelected: self.selectedItem.selection == item)
                     .onTapGesture { [item] in
@@ -106,7 +106,11 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
                         self.selectedItem.objectWillChange.send()
                     }
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth:
+                    self.tabBarStyle.fillSpaceBetwenItems()
+                   ? .infinity
+                   : .none)
+            
         }
     }
     
