@@ -46,6 +46,12 @@ struct ContentView: View {
                 case .third: return "Third"
             }
         }
+        
+        
+        var cacheView: Bool = {
+            return false
+        }
+        
     }
     
     @State private var selection: Item = .first

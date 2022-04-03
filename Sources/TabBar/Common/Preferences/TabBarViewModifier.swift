@@ -30,12 +30,21 @@ struct TabBarViewModifier<TabItem: Tabbable>: ViewModifier {
     
     func body(content: Content) -> some View {
         Group {
-            if self.item == self.selectionObject.selection {
+            let isHidden = self.item != self.selectionObject.selection
+            
+            if item.cacheView == true {
                 content
+                    .opacity(isHidden ? 0 : 1)
+                    .disabled(isHidden)
             } else {
-                Color.clear
+                if isHidden {
+                    Color.clear
+                } else {
+                    content
+                }
             }
         }
+        
         .preference(key: TabBarPreferenceKey.self, value: [self.item])
     }
 }

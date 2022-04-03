@@ -27,6 +27,8 @@ import Foundation
  A type that represents an item of your `TabBar` component.
  */
 public protocol Tabbable: Hashable {
+    var cacheView: Bool { get }
+    
     /// Icon of `TabBar's` item.
     var icon: String { get }
     

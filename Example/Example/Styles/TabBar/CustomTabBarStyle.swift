@@ -35,4 +35,11 @@ struct CustomTabBarStyle: TabBarStyle {
             .padding(.bottom, 16.0 + geometry.safeAreaInsets.bottom)
     }
     
+    public func fillSpaceBetwenItems () -> Bool {
+        return true
+    }
+    
+    func stackSpacing () -> CGFloat? {
+        return nil
+    }
 }

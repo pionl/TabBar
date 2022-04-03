@@ -40,8 +40,8 @@ import SwiftUI
  
  ```
  TabBar(selection: $selection) { }
-    .tabBar(style: CustomTabBarStyle())
-    .tabItem(style: CustomTabItemStyle())
+ .tabBar(style: CustomTabBarStyle())
+ .tabItem(style: CustomTabItemStyle())
  ```
  */
 public struct TabBar<TabItem: Tabbable, Content: View>: View {
@@ -127,6 +127,7 @@ public struct TabBar<TabItem: Tabbable, Content: View>: View {
                     self.tabBarStyle.tabBar(with: geometry) {
                         .init(self.tabItems)
                     }
+                    
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .visibility(self.visibility)
